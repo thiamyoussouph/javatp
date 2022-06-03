@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>users</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<h2><a href="/">lien</a></h2>
+<h1 class="text-success align-content-center">ajouter utilisateur</h1>
+<div class="row-cols-6 border">
+<div class="container-fluid m-3" >
+    <form class="align-content-center" th:action="@{/users/save}" method="post" th:object="${user}">
+      <input type="hidden" th:field="*{id}">
+        <div class="mb-3 m-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{email}"/>
+
+        </div>
+        <div class="mb-3 m-3">
+            <label for="exampleInputPassword1" class="form-label">nom</label>
+            <input type="text" class="form-control" id="exampleInputPassword1"th:field="*{nom}"/>
+        </div>
+        <div class="mb-3 m-3">
+            <label for="exampleInputPassword" class="form-label">password</label>
+            <input type="password" class="form-control" id="exampleInputPassword"th:field="*{password}"/>
+        </div>
+        <div class="mb-3 m-3">
+            <label for="exampleInputPasswor" class="form-label">prenom</label>
+            <input type="text" class="form-control" id="exampleInputPasswor" th:field="*{prenom}"/>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTItre}]]</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<div align="center">
+    <h2 >[${pageTItre}]]</h2>
+    <h2><a href="/">lien</a></h2>
+    <a class="btn btn-primary" th:href="@{/users/new}">ajouter</a>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">email</th>
+        <th scope="col">action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="user:${lisusers}">
+        <tr>
+            <th scope="row">[[${user.id}]]</th>
+            <td>[[${user.nom}]]</td>
+            <td>[[${user.prenom}]]</td>
+            <td>[[${user.email}]]</td>
+            <td><a class="btn btn-success" th:href="@{'/users/edit'+${user.id}}">modifier</a>
+                <a class="btn btn-danger"  th:href="@{'/users/delete'+${user.id}}">suprimer</a>
+            </td>
+    </th:block>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
